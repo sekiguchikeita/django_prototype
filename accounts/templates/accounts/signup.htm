@@ -1,0 +1,38 @@
+
+
+{% if error %}
+
+{{ error }}
+<br />
+<br />
+{% endif %}
+
+
+
+<h2>Sign Up</h2>
+
+
+<form method="POST" action="{% url 'signup' %}">
+
+{% csrf_token %}
+<br />
+<input type="text" name="username" placeholder="ユーザーネーム" />
+<br />
+
+<br />
+<input type="password" name="password1"  placeholder="パスワード"/>
+<br />
+
+<br />
+<input type="password" name="password2" placeholder="パスワード確認" />
+
+
+<br />
+
+<br />
+<input class="btn btn-primary" type="submit" value="登録">
+
+
+</form>
+
+

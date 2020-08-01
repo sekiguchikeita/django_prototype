@@ -1,0 +1,137 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+  </head>
+
+  <body>
+    <div id="body">
+      
+      <!-- ▼▼▼▼▼ header ▼▼▼▼▼ -->
+      <div id="header" class="box_header">
+        <a id="btn" class="name_service" href="login.html">Sinapse</a>
+        <input
+          type="search"
+          class="input_search"
+          placeholder="🔍キーワード、#ハッシュタグを入力..."
+        />
+        <div id="btn">
+          <img class="btn_headerUser" src="{% static 'images/userimages/user00.jpg' %}" alt="プロフィール画像">
+        </div>
+        <div class="btn_create">
+          <p>✏︎ 投稿</p>
+        </div>
+      </div>
+      <!-- ▲▲▲▲▲ header ▲▲▲▲▲ -->
+      
+      <div class="center_lar" style="display: flex;">
+        <!-- ▼▼▼▼▼ boards ▼▼▼▼▼ -->
+        {% for board in boards.all %}
+        <div>
+          <!-- ▼▼▼ board1set ▼▼▼ -->
+          <div class="box_boards1set">
+            <!-- ▼▼ プロフボタン ▼▼ -->
+           
+            <div class="box_boardsUser">
+              <div id="btn">
+                <img class="btn_boardsUser" src="{% static 'images/userimages/user00.jpg' %}" alt="プロフィール画像">
+              </div>
+              <div class="name_user">翔太郎</div>
+              <div id="btn" class="box_boardsUsercontents">
+                <p><i class="far fa-thumbs-up fa-2x"></i></p>
+                <div></div>
+              </div>
+            </div>
+
+            <div class="box_indexBoards">
+              <!-- ▼▼ サムネ画像 ▼▼ -->
+              <div class="thumbnail_indexBoards">
+                <!-- <img class="thumbnail_indexBoards" src="images/treediagram.png" alt="樹形図"> -->
+              </div>
+
+              <!-- ▼▼ 概要 ▼▼ -->
+              <div style="margin: 10px 10px 20px 0px; max-width: 460px;">
+                <!-- ▼ タイトル ▼ -->
+                <div style="margin: 10px;">
+                  <h2 class="indexTitle">
+                   
+
+                    {{ board.title }}
+
+                   
+                  </h2>
+                </div>
+                <!-- ▼ 見出し ▼ -->
+                <div  style="margin: 10px;">
+                  <p class="indexSubheading">{{ board.thumbnail }}</p>
+<!-- 
+                  <p class="indexSubheading">2.1【Cardsの各h2タイトル】cardsの各説明文あああああ</p>
+
+                  <p class="indexSubheading">2.2【Cardsの各h2タイトル】cardsの各説明文あああああ</p>
+
+                  <p class="indexSubheading">3.1【Cardsの各h2タイトル】cardsの各説明文あああああ</p> -->
+                </div>
+                <!-- ▼ ハッシュタグ ▼ -->
+                <div
+                  style="display: flex; flex-wrap: wrap; margin: 10px;"
+                >
+                  <div id="btn" class="box_hashtag">
+                    #NoSQL
+                  </div>
+                  <div id="btn" class="box_hashtag">
+                    #Firebase
+                  </div>
+                  <div id="btn" class="box_hashtag">
+                    #RDB
+                  </div>
+                  <div id="btn" class="box_hashtag">
+                    #AWS
+                  </div>
+                  <div id="btn" class="box_hashtag">
+                    #udemy
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ▼▼ SNS ▼▼ -->
+            <div class="box_indexSns">
+              <div id="btn" class="box_indexSnscontents">
+                <p><i class="far fa-thumbs-up fa-3x"></i></p>
+                <div></div>
+              </div>
+              
+              <div id="btn" class="box_indexSnscontents">
+                <p><i class="far fa-comment fa-3x"></i></p>
+                <div></div>
+              </div>
+
+              <div id="btn" class="box_indexSnscontents">
+                <p><i class="fas fa-retweet fa-3x"></i></p>
+                <div></div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          <!-- ▲▲▲ boards1set ▲▲▲ -->
+        </div>
+        <!-- ▲▲▲▲▲ boards ▲▲▲▲▲ -->
+        
+      </div>
+      
+    </div>
+  </body>
+ 
+</html>
+
+
+
