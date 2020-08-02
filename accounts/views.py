@@ -10,20 +10,33 @@ def signup(request):
         if request.POST['password1'] == request.POST['password2']:
             try:
                 user = User.objects.get(username=request.POST['username'])
-                return render(request, 'accounts/signup.htm', {'error':'Username has already been taken'})
+                return render(request, 'accounts/signup.htm', {'error':'このアドレスは既に使われています'})
             except User.DoesNotExist:
                 user = User.objects.create_user(request.POST['username'], password=request.POST['password1'])
                 auth.login(request,user)
                 return redirect('home')
         else:
-            return render(request, 'accounts/signup.htm', {'error':'Passwords must match'})
+            return render(request, 'accounts/signup.htm', {'error':'パスワードが間違っています'})
     else:
         # User wants to enter info
         return render(request, 'accounts/signup.htm')
 
 def login(request):
-    return render(request, 'accounts/login.htm')
+    if request.method == 'POST':
+        user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
+        if user is not None:
+            auth.login(request, user)
+            return redirect('home')
+        else:
+            return render(request, 'accounts/login.htm', {'error':'メールアドレスもしくはパスワードが間違っています'})
+    else:
+        return render(request, 'accounts/login.htm')
+
+
 
 def logout(request):
     #to do need to route to homepage
-    return render(request, 'accounts/signup.html')
+    if request.method == 'POST':
+        auth.logout(request)
+        return render(request, 'accounts/signup.htm')
+

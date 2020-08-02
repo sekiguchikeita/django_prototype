@@ -24,14 +24,30 @@
 /* ▲▲▲▲▲ 表示位置 ▲▲▲▲▲ */
 
 /* ▼▼▼▼▼ ボタン ▼▼▼▼▼ */
+
+
 #btn:hover {
   opacity: 0.8; /* 透明度を上げることで、画像の色を薄く見せる。*/
   cursor: pointer; /* リンクをホバーしたときのカーソルにする。*/
 }
 
+.login_btn{
+    font-size: 40px;
+    color: #525e6a;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.signup_btn{
+  font-size: 40px;
+  color: #525e6a;
+  padding: 10px;
+  text-decoration: none; /* テキストアンダーライン */
+}
+
 .btn_login {
   width: 100px;
-  height: 20px;
+
   margin: 50px 150px 15px 150px;
   display: inline-block;
   border-radius: 5px; /* 角丸       */

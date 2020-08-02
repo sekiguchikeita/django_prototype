@@ -1,40 +1,49 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SignUp</title>
+    <title>HOME</title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    
   </head>
   <body>
     <div id="body">
       <!-- ▼▼▼▼▼ header ▼▼▼▼▼ -->
       <div id="header" class="box_header">
-        <p class="name_service">Sinapse</p>
+        <a id="btn" class="name_service" href="{% url 'signup' %}">Sinapse</a>
+         <div class="logup">
+        <a class="signup_btn" href="{% url 'signup' %}">signup</a>
+        <a class="login_btn" href="{% url 'login' %}">login</a>
+          </div>
       </div>
       <!-- ▲▲▲▲▲ header ▲▲▲▲▲ -->
 
       <div class="center_objecto">
         <!-- ▼▼▼▼▼ authentication ▼▼▼▼▼ -->
         <div>
+
+{% if error %}
+{{ error }}
+{% endif %}
+
           <!-- ▼▼▼ email login ▼▼▼ -->
-          <form action="{% url 'login' %}" method="POST">
-            {% csrf_token%}
-
+            <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
               <div style="margin: 10px">
-                <input type="email" class="input_login" placeholder="メールアドレス"/>
+               <input class="input_login" type="email" name="username" placeholder="メールアドレス" />
               </div>
               <div style="margin: 10px">
-                <input type="password" class="input_login" placeholder="パスワード"/>
+                <input class="input_login" type="password" name="password"  placeholder="パスワード"/>
               </div>
-
               <div id="btn" class="login_passInfo" style="text-align: center;">パスワードを忘れた方はこちら</div>
               <!-- <input class="btn_login" type="submit" value="ログイン" /> -->
-              <input class="btn_login"  type='submit' value="login">
-
-              <div id="btn" class="login_signupInfo" style="text-align: center;">新規登録</div>
+             <input class="btn_login" type="submit" value="ログイン">
+              <!-- <div id="btn" class="login_signupInfo" style="text-align: center;">新規登録</div> -->
             </div>
           </form>
           <!-- ▲▲▲ email login ▲▲▲ -->

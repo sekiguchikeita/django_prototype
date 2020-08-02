@@ -1,36 +1,58 @@
+{% load static %}
 
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    
+  </head>
+
+  <body>
+  <div id="body">
+    <!-- ▼▼▼▼▼ header ▼▼▼▼▼ -->
+    <div id="header" class="box_header">
+      <a id="btn" class="name_service" href="{% url 'signup' %}">Sinapse</a>
+       <div class="logup">
+      <a class="signup_btn" href="{% url 'signup' %}">signup</a>
+      <a class="login_btn" href="{% url 'login' %}">login</a>
+        </div>
+    </div>
+    <!-- ▲▲▲▲▲ header ▲▲▲▲▲ -->
+
+    <div class="center_objecto">
+      <!-- ▼▼▼▼▼ authentication ▼▼▼▼▼ -->
+      <div>
 
 {% if error %}
-
 {{ error }}
-<br />
-<br />
 {% endif %}
-
-
-
-<h2>Sign Up</h2>
 
 
 <form method="POST" action="{% url 'signup' %}">
 
 {% csrf_token %}
 <br />
-<input type="text" name="username" placeholder="ユーザーネーム" />
+<input class="input_login" type="email" name="username" placeholder="メールアドレス" />
 <br />
 
 <br />
-<input type="password" name="password1"  placeholder="パスワード"/>
+<input class="input_login" type="password" name="password1"  placeholder="パスワード"/>
 <br />
 
 <br />
-<input type="password" name="password2" placeholder="パスワード確認" />
+<input class="input_login" type="password" name="password2" placeholder="パスワード確認" />
 
 
 <br />
 
 <br />
-<input class="btn btn-primary" type="submit" value="登録">
+<input class="btn_login" type="submit" value="サインアップ">
 
 
 </form>
