@@ -30,6 +30,27 @@
         <div class="btn_create">
           <p>✏︎ 投稿</p>
         </div>
+
+        <div class="logout">
+        {% if user.is_authenticated %}
+          {% csrf_token %}
+          <!-- <input type="hidden" /> -->
+        {% else %}
+        <a class="signup_btn" href="{% url 'login' %}">logout</a>
+        <form id="logout" method="POST" action="{% url 'logout' %}">
+        </form>
+        {% endif %}
+      </div>
+
+      <!-- 仮置き -->
+      <div class="logout">
+        <a class="signup_btn" href="{% url 'login' %}">logout</a>
+        <form id="logout" method="POST" action="{% url 'logout' %}">
+
+    
+        </form>
+         </div>
+
       </div>
       <!-- ▲▲▲▲▲ header ▲▲▲▲▲ -->
       

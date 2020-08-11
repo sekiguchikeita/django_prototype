@@ -17,9 +17,22 @@
       <div id="header" class="box_header">
         <a id="btn" class="name_service" href="{% url 'signup' %}">Sinapse</a>
          <div class="logup">
+      {% if user.is_authenticated %}
+     
+      {% else %}
+      <!-- <a class="signup_btn" href="javascript:{document.getElementById('logout').submit()}">logout</a>
+      <form id="logout" method="POST" action="{% url 'logout' %}"> -->
         <a class="signup_btn" href="{% url 'signup' %}">signup</a>
         <a class="login_btn" href="{% url 'login' %}">login</a>
+        {% csrf_token %}
+        <input type="hidden" />
+      </form>
+      {% endif %}
           </div>
+         <!-- 仮置き -->
+        <a class="signup_btn" href="{% url 'signup' %}">signup</a>
+        <a class="login_btn" href="{% url 'login' %}">login</a>
+         <!-- 仮置き -->
       </div>
       <!-- ▲▲▲▲▲ header ▲▲▲▲▲ -->
 
