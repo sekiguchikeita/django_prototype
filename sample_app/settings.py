@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.apps.AppConfig', # AppConfigを追加
     'accounts.apps.AccountsConfig'
+    # 'ajax',
 ]
 
 MIDDLEWARE = [
