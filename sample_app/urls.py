@@ -19,12 +19,15 @@ from django.conf import settings #settingがmediaをルーティングしてい�
 from django.conf.urls.static import static #settingからstaticfileをインポートする
 from django.contrib import admin
 from django.conf.urls import include, url
+from django.urls import path, include #追記
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('app/', include('app.urls')),
-    url(r'^app/', include('app.urls')),
+    # url(r'^app/', include('app.urls')),
+    path('newsapp/', include('newsapp.urls')), #試験的に追加
     # path('', views.home, name='home'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

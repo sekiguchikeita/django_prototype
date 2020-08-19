@@ -50,3 +50,9 @@ class From_To_Card(models.Model):
     from_board = models.ForeignKey("Board", related_name='from+', on_delete=models.CASCADE)
     to_board = models.ForeignKey("Board",  related_name='to+', on_delete=models.CASCADE)
     label = models.CharField(max_length=255)
+
+from django.db import models
+
+
+class News(models.Model):
+   url = models.CharField(max_length=100)

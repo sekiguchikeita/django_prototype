@@ -1,0 +1,35 @@
+<html lang="ja">
+ <head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- Bootstrap CSS -->
+     <title>Pachi Data</title>
+ </head>
+ <body>
+
+<div class="jumbotron">
+   <div class="container">
+     <!-- <h1 class="display-4">??????????</h1> -->
+     <p class="lead">Enter the URL</p>
+   </div>
+ </div>
+
+<div class="container">
+<form action='' method='POST'>{% csrf_token %}
+<p>URL <input type="text" name='url'></p>
+<input type="submit" value='????'>
+</form>
+</div>
+
+<div>
+  {% for post1, post2, post3 in list %} 
+  <h2>????</h2>
+    <p>{{ post1 }}</p>
+   <h2>??</h2>
+    <p>{{ post2 }}</p>
+   <h2>?????</h2>
+    <p><a href="{{ post3 }}"> {{ post3 }}</a></p>
+  {% endfor %}
+</div>
+</html>
