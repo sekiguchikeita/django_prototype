@@ -8,7 +8,7 @@ import requests
 from .models import News
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
-import urllib.request
+from urllib.request import Request, urlopen   
 import requests
 from bs4 import BeautifulSoup
 

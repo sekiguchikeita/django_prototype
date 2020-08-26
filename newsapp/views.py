@@ -3,6 +3,7 @@ from .models import News
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 import urllib.request
+from urllib.request import Request, urlopen
 import requests
 # -*- coding: utf-8 -*-
 import urllib.request
@@ -32,8 +33,13 @@ def listfunc(request):
     # list = []
     
 
-    response = requests.get(url)
-    html = urllib.request.urlopen(url)
+    # response = requests.get(url)
+    # html = urllib.request.urlopen(url)
+
+    req = Request(url, headers={'User-Agent': 'XYZ/3.0'})
+    html = urlopen(req, timeout=10).read()
+
+
 # htmlをBeautifulSoupでパース
     soup = BeautifulSoup(html, "html.parser")
 # タイトル要素の文字列を取得
@@ -41,6 +47,7 @@ def listfunc(request):
     
     head_info = soup.find('head')
 
+    # meta_img = head_info.find('meta', {'property' : 'og:image'})
     meta_img = head_info.find('meta', {'property' : 'og:image'})
     soup_img = meta_img['content']
 
